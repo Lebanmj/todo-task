@@ -1,15 +1,17 @@
-// App.js
-import React, { useState } from 'react';
-import Search from './components/search'; 
+import React, { useState } from 'react'
+// import { Container } from 'react-bootstrap'
+import './App.css'
+import Search from './components/search'
 import TodoList from './components/TodoList';
-
+import Date from './components/Date';
+import DateDisplay from './components/Date';
 
 function App() {
   const [listTodo, setListTodo] = useState([]);
 
-  const addList = (task) => {
-    if (task.name !== '' && task.description !== '') {
-      setListTodo([...listTodo, task]);
+  const addList = ({ name, description }) => {
+    if (name !== '' && description !== '') {
+      setListTodo([...listTodo, { name, description }]);
     }
   };
 
@@ -22,6 +24,7 @@ function App() {
   return (
     <div className='main-container'>
       <div className='center-container'>
+        {/* ... (other components) */}
         <Search addList={addList} />
         <h1 className='app-heading'>My TODO</h1>
         <hr />
@@ -33,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

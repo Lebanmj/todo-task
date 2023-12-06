@@ -14,24 +14,23 @@ function Search(props) {
 
   return (
     <div className='input-container'>
-      <input
-        type='text'
-        className='input-box-todo'
-        placeholder='Enter Task Name'
-        value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      />
-      <input
-        type='text'
-        className='input-box-todo'
-        placeholder='Enter Task Description'
-        value={description}
-        onChange={(e) => {
-          setDescription(e.target.value);
-        }}
-      />
+    <input
+      type='text'
+      className='input-box-todo'
+      placeholder='Enter Task Name'
+      value={name}
+      onChange={(e) => {
+        setName(e.target.value);
+      }}
+    />
+    <textarea
+      className='input-box-todo textarea-description' // Add a class for textarea styling
+      placeholder='Enter Task Description'
+      value={description}
+      onChange={(e) => {
+        setDescription(e.target.value);
+      }}
+    />
       <button
         onClick={() => {
           props.addList({ name, description });
